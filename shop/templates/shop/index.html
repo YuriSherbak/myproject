@@ -1,0 +1,20 @@
+{% extends 'shop/base_shop.html'%}
+
+{% block title %}
+    Main page
+{% endblock %}
+
+{% block content %}
+
+    <h3>Главная</h3>
+    <div>У меня накопилось очень много вещей, которые я больше не ношу. И теперь я хочу продать их вам по выгодным ценам!</div>
+
+    <h6> Бренды: </h6>
+    {%  for thing in things %}
+        <div>
+            <a href="{% url 'list_brand' thing.brand %}" class="btn btn-primary">{{ thing.brand }}</a>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}

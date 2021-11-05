@@ -1,0 +1,30 @@
+{% extends 'shop/base_shop.html'%}
+
+{% block title %}
+    All
+{% endblock %}
+
+{% block content %}
+    <h1 class="mb-5">Things</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for thing in things %}
+            <div class="col">
+                <div class="card h-100" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ thing.picture.url }}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ thing.category}} {{ thing.brand }}</h5>
+                                <p class="card-text">Condition: {{ thing.condition }}</p>
+                                <p class="card-text">Cost: {{ thing.cost }}RUB</p>
+                                <a href="{% url 'detail' thing.id %}" class="btn btn-primary">View the product</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

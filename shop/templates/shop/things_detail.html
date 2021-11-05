@@ -1,0 +1,27 @@
+{% extends 'shop/base_shop.html' %}
+
+{% block title %}
+    Things with id={{ thing.id }}
+{% endblock %}
+
+{% block content %}
+   <div class="card" style="width: 100rem;">
+   <div class="card" style="width: 35rem;">
+       <img src="{{ thing.picture.url }}" class="img-fluid rounded-start" alt="...">
+   </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ thing.category.category_name}} {{ thing.brand }}</h5>
+    <p class="card-text">{{ thing.info }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Brand: {{ thing.brand }}</li>
+    <li class="list-group-item">Category: {{ thing.category }}</li>
+    <li class="list-group-item">Condition: {{ thing.condition }}</li>
+    <li class="list-group-item">Cost: {{ thing.cost }}RUB</li>
+  </ul>
+  <div class="card-body">
+    <a href="{% url 'thing_list'%}" class="btn btn-primary">Back</a>
+    <a href="#" class="btn btn-primary">Buy</a>
+  </div>
+</div>
+{% endblock %}
